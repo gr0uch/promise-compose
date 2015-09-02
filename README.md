@@ -14,13 +14,15 @@ $ npm install promise-compose
 ## Usage
 
 ```js
+import assert from 'assert'
 import compose from 'promise-compose'
 
 const double = x => x * 2
 const square = x => x * x
 const root = x => new Promise(resolve => resolve(Math.sqrt(x)))
 
-compose(root, double, square)(9) // returns a Promise that resolves to 36
+compose(root, double, square)(9)
+.then(result => assert.equal(result, 36))
 ```
 
 This library assumes that `Promise` is a global that implements the ES6 Promise specification. If you're not sure if the environment has `Promise` or you want to use something else, simply override `compose.Promise`.
