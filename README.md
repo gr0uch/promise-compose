@@ -19,7 +19,7 @@ import compose from 'promise-compose'
 
 const double = x => x * 2
 const square = x => x * x
-const root = x => new Promise(resolve => resolve(Math.sqrt(x)))
+const root = x => Promise.resolve(Math.sqrt(x))
 
 compose(root, double, square)(9)
 .then(result => assert.equal(result, 36))

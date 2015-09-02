@@ -7,11 +7,7 @@ var success = 'expected value is correct'
 
 function double (x) { return x * 2 }
 function square (x) { return x * x }
-function root (x) {
-  return new Promise(function handler (resolve) {
-    return resolve(Math.sqrt(x))
-  })
-}
+function root (x) { return Promise.resolve(Math.sqrt(x)) }
 
 run(function () {
   return compose(double, square, root)(2)
