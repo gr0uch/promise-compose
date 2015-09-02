@@ -1,7 +1,7 @@
 {
   "name": "promise-compose",
   "description": "Compose an arbitrary number of functions that accept one argument and return either a value or a Promise.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": {
     "email": "0x8890@airmail.cc",
@@ -31,6 +31,10 @@
   "engines": {
     "node": ">=0.12"
   },
+  "files": [
+    "index.js",
+    "LICENSE"
+  ],
   "keywords": [
     "promise",
     "compose",
