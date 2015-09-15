@@ -21,7 +21,12 @@ const double = x => x * 2
 const square = x => x * x
 const root = x => Promise.resolve(Math.sqrt(x))
 
+// From left to right.
 compose(root, double, square)(9)
+.then(result => assert.equal(result, 36))
+
+// From right to left.
+compose.right(square, double, root)(9)
 .then(result => assert.equal(result, 36))
 ```
 

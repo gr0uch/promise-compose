@@ -5,7 +5,7 @@
  * @param {...Function} functions
  * @return {Function}
  */
-module.exports = function compose () {
+function compose () {
   var P = compose.Promise || Promise
   var functions = arguments
 
@@ -15,3 +15,9 @@ module.exports = function compose () {
     P.resolve(initialValue))
   }
 }
+
+compose.right = function () {
+  return compose.apply(null, Array.prototype.reverse.call(arguments))
+}
+
+module.exports = compose

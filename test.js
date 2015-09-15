@@ -29,3 +29,10 @@ run(function () {
     pass(function () { assert.equal(value, 9) }, success)
   })
 })
+
+run(function () {
+  return compose.right(double, root, square)(3)
+  .then(function (value) {
+    pass(function () { assert.equal(value, 6) }, success)
+  })
+})
