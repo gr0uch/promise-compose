@@ -1,23 +1,30 @@
+var internalCompose = function (args) {
+  var P = compose.Promise || Promise
+
+  return function (initialValue) {
+    var chain = P.resolve(initialValue)
+    var i, j
+
+    for (i = 0, j = args.length; i < j; i++)
+      chain = chain.then(args[i])
+
+    return chain
+  }
+}
+
 /**
  * Compose an arbitrary number of functions that accept one argument and return
  * either a value or a Promise.
  *
- * @param {...Function} functions
+ * @param {...Function}
  * @return {Function}
  */
 function compose () {
-  var P = compose.Promise || Promise
-  var functions = arguments
-
-  return function (initialValue) {
-    return Array.prototype.reduce.call(functions,
-      function (chain, fn) { return chain.then(fn) },
-    P.resolve(initialValue))
-  }
+  return internalCompose(arguments)
 }
 
 compose.right = function () {
-  return compose.apply(null, Array.prototype.reverse.call(arguments))
+  return internalCompose(Array.prototype.reverse.call(arguments))
 }
 
 module.exports = compose
