@@ -1,7 +1,7 @@
 {
   "name": "promise-compose",
   "description": "Compose an arbitrary number of functions that accept one argument and return either a value or a Promise.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
   "author": {
     "email": "0x8890@airmail.cc",
@@ -12,22 +12,10 @@
     "url": "git@github.com:0x8890/promise-compose.git"
   },
   "scripts": {
-    "lint": "eslint .",
-    "test": "npm run lint && node test | tap-dot"
+    "test": "node test"
   },
   "devDependencies": {
-    "eslint": "^1.9.0",
-    "eslint-config-0x8890": "^1.0.0",
-    "tap-dot": "^1.0.0",
-    "tapdance": "^4.0.1"
-  },
-  "eslintConfig": {
-    "extends": "0x8890",
-    "rules": {
-      "one-var": 0,
-      "no-var": 0,
-      "func-names": 0
-    }
+    "tapdance": "^4.1.2"
   },
   "engines": {
     "node": ">=0.12"
